@@ -1,15 +1,16 @@
-#' <Add Title>
+#' Highlighter
 #'
-#' <Add Description>
+#' Highlights code
 #'
 #' @import htmlwidgets
 #'
 #' @export
-highlighter <- function(message, width = NULL, height = NULL, elementId = NULL) {
-
+highlighter <- function(message, language = "r", width = NULL, height = NULL, elementId = NULL) {
+  assert_language_is_available(language)
   # forward options using x
   x = list(
-    message = message
+    message = message,
+    language = language
   )
 
   # create widget
@@ -20,7 +21,7 @@ highlighter <- function(message, width = NULL, height = NULL, elementId = NULL) 
     height = height,
     package = 'highlighter',
     elementId = elementId,
-    dependencies = highlighter_js_dependencies()
+    dependencies = highlighter_dependencies()
   )
 }
 
@@ -54,9 +55,10 @@ renderHighlighter <- function(expr, env = parent.frame(), quoted = FALSE) {
 
 
 #' Highlighter dependencies
+#' @importFrom htmltools htmlDependency
 #' @noRd
 highlighter_dependencies <- function(theme = "default") {
-  htmltools::htmlDependency(
+  htmlDependency(
     name = "highlighter",
     version = "0.1.0",
     package = "highlighter",
@@ -70,18 +72,23 @@ highlighter_dependencies <- function(theme = "default") {
 #' Asserts that a file exists
 #' @noRd
 assert_file_exists <- function(file_path) {
-  TRUE
+  if (!file.exists(file_path)) {
+    rlang::abort(
+      message = paste(file_path, "does not exist. Please select a valid file"),
+      class = "FileDoesNotExist"
+    )
+  }
 }
 
 
 #' Highlights the content of a given file
 #' @param file_path The path to the file to be highlighted
 #' @export
-highlight_file <- function(file_path) {
+highlight_file <- function(file_path, language = "r") {
   assert_file_exists(file_path)
   text <- paste(
     readLines(file_path),
     collapse = "\n"
   )
-  highlighter(text)
+  highlighter(text, language)
 }

@@ -9,25 +9,30 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-
-        // TODO: code to render the widget, e.g.
-        window.coso = el;
-        window.para = x;
-        preEl = document.createElement("pre");
-        codeEl = document.createElement("code");
-        window.codeEl = codeEl;
-        codeEl.classList.add("language-r");
-        preEl.appendChild(codeEl);
-        el.appendChild(preEl);
-        codeEl.textContent = x.message;
-        console.log("appendiodsadasng")
-        Prism.highlightElement(codeEl)
+        this.element = el;
+        this.remove();
+        this.createCodeElement(x)
       },
 
       resize: function(width, height) {
-
         // TODO: code to re-render the widget with a new size
+      },
 
+      remove: function() {
+        this.element.childNodes.forEach(el => {
+          el.remove()
+        })
+      },
+
+      createCodeElement: function(x) {
+        const preEl = document.createElement("pre");
+        const codeEl = document.createElement("code");
+        codeEl.classList.add(`language-${x.language}`);
+        preEl.appendChild(codeEl);
+        this.element.appendChild(preEl);
+        codeEl.textContent = x.message;
+        // Highlight
+        Prism.highlightElement(codeEl);
       }
 
     };

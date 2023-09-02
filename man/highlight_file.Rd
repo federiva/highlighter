@@ -4,7 +4,7 @@
 \alias{highlight_file}
 \title{Highlights the content of a given file}
 \usage{
-highlight_file(file_path)
+highlight_file(file_path, language = "r")
 }
 \arguments{
 \item{file_path}{The path to the file to be highlighted}

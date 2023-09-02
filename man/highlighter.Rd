@@ -2,14 +2,16 @@
 % Please edit documentation in R/highlighter.R
 \name{highlighter}
 \alias{highlighter}
-\title{\if{html}{\out{
-<Add Title>
-}}}
+\title{Highlighter}
 \usage{
-highlighter(message, width = NULL, height = NULL, elementId = NULL)
+highlighter(
+  message,
+  language = "r",
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \description{
-\if{html}{\out{
-<Add Description>
-}}
+Highlights code
 }

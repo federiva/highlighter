@@ -26,7 +26,7 @@ server <- function(input, output, session) {
       ),
       language = input$language,
       plugins = list(
-        plugins$line_number(
+        line_number(
           use_line_number = TRUE,
           start_from = 5
         )

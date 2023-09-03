@@ -16,11 +16,3 @@ line_number = function(use_line_number = TRUE, start_from = 1) {
     )
   }    
 }
-
-#' @export
-plugins <- structure(
-  class = "highlighterPlugins",
-  list(
-    line_number = line_number
-  )
-)

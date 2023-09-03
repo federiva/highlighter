@@ -2,15 +2,19 @@
 #'
 #' Highlights code
 #'
+#' @param language The programming language chosen to be highlighted
+#' @param plugins Optional. A list of plugins to be used
 #' @import htmlwidgets
 #'
 #' @export
-highlighter <- function(message, language = "r", width = NULL, height = NULL, elementId = NULL) {
+highlighter <- function(code, language = "r", plugins = NULL, width = NULL, height = NULL, elementId = NULL) {
   assert_language_is_available(language)
+  assert_plugin_definitions(plugins)
   # forward options using x
   x = list(
-    message = message,
-    language = language
+    code = code,
+    language = language,
+    plugins = plugins
   )
 
   # create widget
@@ -68,6 +72,22 @@ highlighter_dependencies <- function(theme = "default") {
   )
 }
 
+dependencies <- 
+
+
+#' Utility functions
+#' @importFrom htmltools htmlDependency
+#' @noRd
+custom_utils_dependencies <- function() {
+  htmlDependency(
+    name = "highlighter",
+    version = "0.1.0",
+    package = "highlighter",
+    src = "htmlwidgets/utils",
+    script = "plugins.js"
+  )
+}
+
 
 #' Asserts that a file exists
 #' @noRd
@@ -83,12 +103,14 @@ assert_file_exists <- function(file_path) {
 
 #' Highlights the content of a given file
 #' @param file_path The path to the file to be highlighted
+#' @param language The programming language chosen to be highlighted
+#' @param plugins Optional. A list of plugins to be used
 #' @export
-highlight_file <- function(file_path, language = "r") {
+highlight_file <- function(file_path, language = "r", plugins = NULL) {
   assert_file_exists(file_path)
-  text <- paste(
+  code <- paste(
     readLines(file_path),
     collapse = "\n"
   )
-  highlighter(text, language)
+  highlighter(code, language, plugins)
 }

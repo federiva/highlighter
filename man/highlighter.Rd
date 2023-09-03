@@ -5,12 +5,18 @@
 \title{Highlighter}
 \usage{
 highlighter(
-  message,
+  code,
   language = "r",
+  plugins = NULL,
   width = NULL,
   height = NULL,
   elementId = NULL
 )
+}
+\arguments{
+\item{language}{The programming language chosen to be highlighted}
+
+\item{plugins}{Optional. A list of plugins to be used}
 }
 \description{
 Highlights code

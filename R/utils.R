@@ -17,3 +17,7 @@ assert_language_is_available <- function(language) {
   }
   invisible()
 }
+
+assert_plugin_definitions <- function(plugins) {
+  TRUE
+}

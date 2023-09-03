@@ -4,10 +4,14 @@
 \alias{highlight_file}
 \title{Highlights the content of a given file}
 \usage{
-highlight_file(file_path, language = "r")
+highlight_file(file_path, language = "r", plugins = NULL)
 }
 \arguments{
 \item{file_path}{The path to the file to be highlighted}
+
+\item{language}{The programming language chosen to be highlighted}
+
+\item{plugins}{Optional. A list of plugins to be used}
 }
 \description{
 Highlights the content of a given file

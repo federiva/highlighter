@@ -1,3 +1,4 @@
+devtools::load_all()
 library(shiny)
 library(highlighter)
 
@@ -13,18 +14,24 @@ ui <- fluidPage(
     choices = highlighter::get_available_languages(),
     selected = "r"
   ),
-  highlighterOutput("coso")
+  highlighterOutput("code")
 )
 
 server <- function(input, output, session) {
-  output$coso <- renderHighlighter({
+  output$code <- renderHighlighter({
     req(isTruthy(input$language))
     highlight_file(
       file_path = file.path(
         path.package(package = "highlighter"),
         input$file
       ),
-      language = input$language
+      language = input$language,
+      plugins = list(
+        plugins$line_number(
+          use_line_number = TRUE,
+          start_from = 5
+        )
+      )
     )
   })
 }

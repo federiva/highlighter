@@ -25,12 +25,13 @@ HTMLWidgets.widget({
       },
 
       createCodeElement: function(x) {
-        const preEl = document.createElement("pre");
+        let preEl = document.createElement("pre");
         const codeEl = document.createElement("code");
         codeEl.classList.add(`language-${x.language}`);
         preEl.appendChild(codeEl);
         this.element.appendChild(preEl);
-        codeEl.textContent = x.message;
+        codeEl.textContent = x.code;
+        preEl = parsePlugins(preEl, x.plugins);
         // Highlight
         Prism.highlightElement(codeEl);
       }

@@ -2,8 +2,12 @@
 #'
 #' Highlights code
 #'
+#' @param code The code to be highlighted
 #' @param language The programming language chosen to be highlighted
 #' @param plugins Optional. A list of plugins to be used
+#' @param width Optional. The width to be used by the widget
+#' @param height Optional. The height to be used by the widget
+#' @param elementId Optional. The DOM element id to be used by the widget
 #' @import htmlwidgets
 #'
 #' @export

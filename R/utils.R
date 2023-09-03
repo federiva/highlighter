@@ -1,5 +1,6 @@
-available_languages <- readLines("./inst/data/languages")
+available_languages <- readLines("inst/assets/languages")
 
+#' List the available languages that can be used to highlight
 #' @export
 get_available_languages <- function() {
   available_languages

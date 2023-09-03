@@ -14,9 +14,17 @@ highlighter(
 )
 }
 \arguments{
+\item{code}{The code to be highlighted}
+
 \item{language}{The programming language chosen to be highlighted}
 
 \item{plugins}{Optional. A list of plugins to be used}
+
+\item{width}{Optional. The width to be used by the widget}
+
+\item{height}{Optional. The height to be used by the widget}
+
+\item{elementId}{Optional. The DOM element id to be used by the widget}
 }
 \description{
 Highlights code

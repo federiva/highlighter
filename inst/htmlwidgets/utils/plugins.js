@@ -29,7 +29,27 @@ const useLineNumber = (preEl, pluginDefinition) => {
  */
 const parsePlugins = (preEl, plugins) => {
   plugins.forEach(pluginDefinition => {
-    preEl = useLineNumber(preEl, pluginDefinition)
+    preEl = useLineNumber(preEl, pluginDefinition);
+    preEl = useHighlight(preEl, pluginDefinition);
   })
+  return preEl
+}
+
+/**
+ * Applies code highlighting to a <pre> element based on a specified plugin definition.
+ *
+ * @param {HTMLElement} preEl - The <pre> element to which code highlighting will be applied.
+ * @param {Object} pluginDefinition - The plugin definition containing configuration details.
+ * @param {string} pluginDefinition.plugin_name - The name of the plugin, should be "highlight".
+ * @param {string} [pluginDefinition["data-line"]] - Optional attribute to specify highlighted lines.
+ * 
+ * @returns {HTMLElement} The modified <pre> element with code highlighting applied.
+ */
+const useHighlight = (preEl, pluginDefinition) => {
+  if (pluginDefinition.plugin_name === "highlight") {
+    if (!!pluginDefinition["data-line"]) {
+      preEl.setAttribute("data-line", pluginDefinition["data-line"]);
+    }
+  }
   return preEl
 }

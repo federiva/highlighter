@@ -27,7 +27,7 @@ highlighter <- function(code, language = "r", plugins = NULL, width = "100%", he
     width = width,
     height = height,
     package = 'highlighter',
-    elementId = digest::digest(Sys.time()),
+    elementId = elementId,
     dependencies = highlighter_dependencies()
   )
 }

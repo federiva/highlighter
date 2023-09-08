@@ -1,9 +1,9 @@
 Package: highlighter
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Code Syntax Highlighting using the Prism.js library
+Version: 0.0.1.0000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+    person("Federico", "Rivadeneira", , "federivadeneira@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7818-1225"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -13,3 +13,8 @@ Imports:
     htmltools,
     htmlwidgets,
     rlang
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+URL: https://federiva.github.io/highlighter/

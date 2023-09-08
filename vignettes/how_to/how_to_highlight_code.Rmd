@@ -1,0 +1,36 @@
+---
+title: "Highlight code"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Highlight code}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(highlighter)
+```
+
+## Using highlighter
+We can use the `highglighter` function in order to render and highlight code. By default the function will highlight the 
+syntax of R code.
+
+```{r}
+highlighter("some_variable <- 3")
+```
+
+If we want we can specify the language using the `language` parameter.
+
+```{r}
+highlighter("const someVariable = 3;", language = "js")
+```
+
+## Using highlight_file
+We can pass the path to a local file using the `highlight_file` function
+```{r}
+highlight_file("assets/example_code/shiny_app_example.R")
+```

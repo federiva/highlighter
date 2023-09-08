@@ -11,7 +11,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-highlighter <- function(code, language = "r", plugins = NULL, width = NULL, height = NULL, elementId = NULL) {
+highlighter <- function(code, language = "r", plugins = NULL, width = "100%", height = "auto", elementId = NULL) {
   assert_language_is_available(language)
   assert_plugin_definitions(plugins)
   # forward options using x
@@ -20,7 +20,6 @@ highlighter <- function(code, language = "r", plugins = NULL, width = NULL, heig
     language = language,
     plugins = plugins
   )
-
   # create widget
   htmlwidgets::createWidget(
     name = 'highlighter',
@@ -28,7 +27,7 @@ highlighter <- function(code, language = "r", plugins = NULL, width = NULL, heig
     width = width,
     height = height,
     package = 'highlighter',
-    elementId = elementId,
+    elementId = digest::digest(Sys.time()),
     dependencies = highlighter_dependencies()
   )
 }
@@ -50,7 +49,7 @@ highlighter <- function(code, language = "r", plugins = NULL, width = NULL, heig
 #' @name highlighter-shiny
 #'
 #' @export
-highlighterOutput <- function(outputId, width = '100%', height = '400px'){
+highlighterOutput <- function(outputId, width = '100%', height = 'auto'){
   htmlwidgets::shinyWidgetOutput(outputId, 'highlighter', width, height, package = 'highlighter')
 }
 
@@ -75,8 +74,6 @@ highlighter_dependencies <- function(theme = "default") {
     stylesheet = "prism.css"
   )
 }
-
-dependencies <- 
 
 
 #' Utility functions

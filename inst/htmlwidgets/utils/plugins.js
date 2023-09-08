@@ -28,10 +28,12 @@ const useLineNumber = (preEl, pluginDefinition) => {
  * @returns {HTMLElement} The modified <pre> element with the specified plugins applied.
  */
 const parsePlugins = (preEl, plugins) => {
-  plugins.forEach(pluginDefinition => {
-    preEl = useLineNumber(preEl, pluginDefinition);
-    preEl = useHighlight(preEl, pluginDefinition);
-  })
+  if (!!plugins) {
+    plugins.forEach(pluginDefinition => {
+      preEl = useLineNumber(preEl, pluginDefinition);
+      preEl = useHighlight(preEl, pluginDefinition);
+    })
+  }
   return preEl
 }
 

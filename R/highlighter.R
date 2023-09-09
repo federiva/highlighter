@@ -11,7 +11,10 @@
 #' @import htmlwidgets
 #'
 #' @export
-highlighter <- function(code, language = "r", plugins = NULL, width = NULL, height = NULL, elementId = NULL) {
+#' @examples
+#' # Highlight R code
+#' highlighter("print('Hello, world!')", language = "r")
+highlighter <- function(code, language = "r", plugins = NULL, width = "100%", height = "auto", elementId = NULL) {
   assert_language_is_available(language)
   assert_plugin_definitions(plugins)
   # forward options using x
@@ -20,7 +23,6 @@ highlighter <- function(code, language = "r", plugins = NULL, width = NULL, heig
     language = language,
     plugins = plugins
   )
-
   # create widget
   htmlwidgets::createWidget(
     name = 'highlighter',
@@ -50,7 +52,7 @@ highlighter <- function(code, language = "r", plugins = NULL, width = NULL, heig
 #' @name highlighter-shiny
 #'
 #' @export
-highlighterOutput <- function(outputId, width = '100%', height = '400px'){
+highlighterOutput <- function(outputId, width = '100%', height = 'auto'){
   htmlwidgets::shinyWidgetOutput(outputId, 'highlighter', width, height, package = 'highlighter')
 }
 
@@ -76,8 +78,6 @@ highlighter_dependencies <- function(theme = "default") {
   )
 }
 
-dependencies <- 
-
 
 #' Utility functions
 #' @importFrom htmltools htmlDependency
@@ -90,18 +90,6 @@ custom_utils_dependencies <- function() {
     src = "htmlwidgets/utils",
     script = "plugins.js"
   )
-}
-
-
-#' Asserts that a file exists
-#' @noRd
-assert_file_exists <- function(file_path) {
-  if (!file.exists(file_path)) {
-    rlang::abort(
-      message = paste(file_path, "does not exist. Please select a valid file"),
-      class = "FileDoesNotExist"
-    )
-  }
 }
 
 

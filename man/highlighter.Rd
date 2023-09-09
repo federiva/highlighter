@@ -8,8 +8,8 @@ highlighter(
   code,
   language = "r",
   plugins = NULL,
-  width = NULL,
-  height = NULL,
+  width = "100\%",
+  height = "auto",
   elementId = NULL
 )
 }
@@ -28,4 +28,8 @@ highlighter(
 }
 \description{
 Highlights code
+}
+\examples{
+# Highlight R code
+highlighter("print('Hello, world!')", language = "r")
 }

@@ -6,7 +6,7 @@
 \alias{renderHighlighter}
 \title{Shiny bindings for highlighter}
 \usage{
-highlighterOutput(outputId, width = "100\%", height = "400px")
+highlighterOutput(outputId, width = "100\%", height = "auto")
 
 renderHighlighter(expr, env = parent.frame(), quoted = FALSE)
 }

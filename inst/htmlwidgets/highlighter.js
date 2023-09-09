@@ -10,7 +10,7 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
         this.element = el;
-        this.remove();
+        // this.remove();
         this.createCodeElement(x)
       },
 

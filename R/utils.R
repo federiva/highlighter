@@ -19,6 +19,19 @@ assert_language_is_available <- function(language) {
   invisible()
 }
 
+#' Assert that the plugins passed are available
+#' @noRd
 assert_plugin_definitions <- function(plugins) {
-  TRUE
+  all(names(plugins) %in% available_plugins)
+}
+
+#' Asserts that a file exists
+#' @noRd
+assert_file_exists <- function(file_path) {
+  if (!file.exists(file_path)) {
+    rlang::abort(
+      message = paste(file_path, "does not exist. Please select a valid file"),
+      class = "FileDoesNotExist"
+    )
+  }
 }

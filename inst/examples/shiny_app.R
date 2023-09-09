@@ -1,3 +1,4 @@
+devtools::load_all()
 library(shiny)
 library(highlighter)
 
@@ -28,7 +29,10 @@ server <- function(input, output, session) {
       plugins = list(
         line_number(
           use_line_number = TRUE,
-          start_from = 5
+          start_from = 3
+        ),
+        highlight(
+          range = "7-10,13"
         )
       )
     )

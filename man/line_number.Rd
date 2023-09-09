@@ -14,3 +14,15 @@ line_number(use_line_number = TRUE, start_from = 1)
 \description{
 Line Number plugin
 }
+\examples{
+highlighter::highlighter(
+  "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
+  language = "r",
+  plugins = list(
+    line_number(
+      use_line_number = TRUE,
+      start_from = 2
+    )
+  )
+)
+}

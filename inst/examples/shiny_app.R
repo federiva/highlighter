@@ -6,7 +6,10 @@ ui <- fluidPage(
   selectizeInput(
     inputId = "file",
     label = "Select a file",
-    choices = list.files(path.package(package = "highlighter"), recursive = TRUE)
+    choices = list.files(
+      path.package(package = "highlighter"),
+      recursive = TRUE
+    )
   ),
   selectizeInput(
     inputId = "language",

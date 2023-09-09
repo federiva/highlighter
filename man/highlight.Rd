@@ -13,3 +13,15 @@ up to 5. Also you can highlight two or more ranges in the following way 2-5,10-1
 \description{
 Line highlight plugin
 }
+\examples{
+highlighter::highlighter(
+  "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
+  language = "r",
+  plugins = list(
+    highlight(
+     range = "1-2"
+    )
+  )
+)
+
+}

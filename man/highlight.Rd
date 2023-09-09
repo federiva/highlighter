@@ -7,8 +7,9 @@
 highlight(range)
 }
 \arguments{
-\item{range}{A character indicating the range to be used, for example 2-5 will highlight from 2
-up to 5. Also you can highlight two or more ranges in the following way 2-5,10-13,19}
+\item{range}{A character indicating the range to be used, for example 2-5
+will highlight from 2 up to 5. Also you can highlight two or more ranges in
+the following way 2-5,10-13,19.}
 }
 \description{
 Line highlight plugin
@@ -19,7 +20,7 @@ highlighter::highlighter(
   language = "r",
   plugins = list(
     highlight(
-     range = "1-2"
+      range = "1-2"
     )
   )
 )

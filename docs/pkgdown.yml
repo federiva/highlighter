@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   highlighter: highlighter.html
   how_to_highlight_code: how_to/how_to_highlight_code.html
-last_built: 2023-09-09T05:02Z
+last_built: 2023-09-09T05:21Z
 urls:
   reference: https://federiva.github.io/highlighter/reference
   article: https://federiva.github.io/highlighter/articles

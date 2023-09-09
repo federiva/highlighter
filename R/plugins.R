@@ -1,3 +1,5 @@
+available_plugins <- c("line_number", "highlight")
+
 #' Line Number plugin
 #' @param use_line_number Logical
 #' @param start_from A numeric indicating where to start to count from

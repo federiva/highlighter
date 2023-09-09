@@ -11,6 +11,9 @@
 #' @import htmlwidgets
 #'
 #' @export
+#' @examples
+#' # Highlight R code
+#' highlighter("print('Hello, world!')", language = "r")
 highlighter <- function(code, language = "r", plugins = NULL, width = "100%", height = "auto", elementId = NULL) {
   assert_language_is_available(language)
   assert_plugin_definitions(plugins)
@@ -87,18 +90,6 @@ custom_utils_dependencies <- function() {
     src = "htmlwidgets/utils",
     script = "plugins.js"
   )
-}
-
-
-#' Asserts that a file exists
-#' @noRd
-assert_file_exists <- function(file_path) {
-  if (!file.exists(file_path)) {
-    rlang::abort(
-      message = paste(file_path, "does not exist. Please select a valid file"),
-      class = "FileDoesNotExist"
-    )
-  }
 }
 
 

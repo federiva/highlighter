@@ -32,5 +32,5 @@ highlighter("const someVariable = 3;", language = "js")
 ## Using highlight_file
 We can pass the path to a local file using the `highlight_file` function
 ```{r}
-highlight_file("vignettes/how_to/assets/example_code/shiny_app_example.R")
+highlight_file("man/assets/example_code/shiny_app_example.R")
 ```

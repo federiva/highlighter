@@ -1,4 +1,3 @@
-devtools::load_all()
 library(shiny)
 library(highlighter)
 
@@ -6,7 +5,10 @@ ui <- fluidPage(
   selectizeInput(
     inputId = "file",
     label = "Select a file",
-    choices = list.files(path.package(package = "highlighter"), recursive = TRUE)
+    choices = list.files(
+      path.package(package = "highlighter"),
+      recursive = TRUE
+    )
   ),
   selectizeInput(
     inputId = "language",
@@ -19,7 +21,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   output$code <- renderHighlighter({
-    req(isTruthy(input$language))
+    shiny::req(shiny::isTruthy(input$language))
     highlight_file(
       file_path = file.path(
         path.package(package = "highlighter"),

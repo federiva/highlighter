@@ -12,7 +12,10 @@ assert_language_is_available <- function(language) {
   test <- language %in% available_languages
   if (!test) {
     rlang::abort(
-      message = paste(language, "is not a valid language. Check get_available_languages() for the supported ones"),
+      message = paste(
+        language,
+        "is not a valid language. Check get_available_languages() for the supported ones"
+      ),
       class = "languageNotAvailable"
     )
   }

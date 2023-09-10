@@ -15,6 +15,7 @@ Imports:
     rlang
 Suggests: 
     knitr,
+    lintr,
     rmarkdown
 VignetteBuilder: knitr
 URL: https://federiva.github.io/highlighter/

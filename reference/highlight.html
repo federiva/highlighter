@@ -61,11 +61,28 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>range</dt>
-<dd><p>A character indicating the range to be used, for example 2-5 will highlight from 2
-up to 5. Also you can highlight two or more ranges in the following way 2-5,10-13,19</p></dd>
+<dd><p>A character indicating the range to be used, for example 2-5
+will highlight from 2 up to 5. Also you can highlight two or more ranges in
+the following way 2-5,10-13,19.</p></dd>
 
 </dl></div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">highlighter</span><span class="fu">::</span><span class="fu"><a href="highlighter.html">highlighter</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"print('Hello, world!')\ncat &lt;- \"Aristofanes\"\nstr(some_variable)"</span>,</span></span>
+<span class="r-in"><span>  language <span class="op">=</span> <span class="st">"r"</span>,</span></span>
+<span class="r-in"><span>  plugins <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu">highlight</span><span class="op">(</span></span></span>
+<span class="r-in"><span>      range <span class="op">=</span> <span class="st">"1-2"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

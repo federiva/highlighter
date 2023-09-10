@@ -15,6 +15,7 @@ the following way 2-5,10-13,19.}
 Line highlight plugin
 }
 \examples{
+\dontrun{
 highlighter::highlighter(
   "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
   language = "r",
@@ -24,5 +25,6 @@ highlighter::highlighter(
     )
   )
 )
+}
 
 }

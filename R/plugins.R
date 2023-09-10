@@ -8,6 +8,7 @@ available_plugins <- c("line_number", "highlight")
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' highlighter::highlighter(
 #'   "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
 #'   language = "r",
@@ -18,6 +19,8 @@ available_plugins <- c("line_number", "highlight")
 #'     )
 #'   )
 #' )
+#' }
+#'
 line_number <- function(use_line_number = TRUE, start_from = 1) {
   if (use_line_number) {
     list(
@@ -42,6 +45,7 @@ line_number <- function(use_line_number = TRUE, start_from = 1) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' highlighter::highlighter(
 #'   "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
 #'   language = "r",
@@ -51,6 +55,7 @@ line_number <- function(use_line_number = TRUE, start_from = 1) {
 #'     )
 #'   )
 #' )
+#' }
 #'
 highlight <- function(range) {
   list(

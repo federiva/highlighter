@@ -39,11 +39,14 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-how-to">How to</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-how-to">
     <a class="dropdown-item" href="../../articles/how_to/how_to_highlight_code.html">Highlight code</a>
-    <a class="dropdown-item" href="../../articles/how_to/how_to_highlight_code.html">Highlight code directly from a file</a>
+    <a class="dropdown-item" href="../../articles/how_to/how_to_use_in_a_shiny_app.html">Use highlighter in a Shiny App</a>
   </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../../reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../../news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -86,13 +89,13 @@ and highlight code. By default the function will highlight the syntax of
 R code.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../../reference/highlighter.html">highlighter</a></span><span class="op">(</span><span class="st">"some_variable &lt;- 3"</span><span class="op">)</span></span></code></pre></div>
-<div id="htmlwidget-cb2794ad12691994e0bb" style="width:100%;height:auto;" class="highlighter html-widget "></div>
-<script type="application/json" data-for="htmlwidget-cb2794ad12691994e0bb">{"x":{"code":"some_variable <- 3","language":"r","plugins":null},"evals":[],"jsHooks":[]}</script><p>If we want we can specify the language using the
+<div id="htmlwidget-586be63d804a7c1deb3e" style="width:100%;height:auto;" class="highlighter html-widget "></div>
+<script type="application/json" data-for="htmlwidget-586be63d804a7c1deb3e">{"x":{"code":"some_variable <- 3","language":"r","plugins":null},"evals":[],"jsHooks":[]}</script><p>If we want we can specify the language using the
 <code>language</code> parameter.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../../reference/highlighter.html">highlighter</a></span><span class="op">(</span><span class="st">"const someVariable = 3;"</span>, language <span class="op">=</span> <span class="st">"js"</span><span class="op">)</span></span></code></pre></div>
-<div id="htmlwidget-ae297d5af27d33abf1ba" style="width:100%;height:auto;" class="highlighter html-widget "></div>
-<script type="application/json" data-for="htmlwidget-ae297d5af27d33abf1ba">{"x":{"code":"const someVariable = 3;","language":"js","plugins":null},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b22614a1e7e3c9f31cf7" style="width:100%;height:auto;" class="highlighter html-widget "></div>
+<script type="application/json" data-for="htmlwidget-b22614a1e7e3c9f31cf7">{"x":{"code":"const someVariable = 3;","language":"js","plugins":null},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="section level2">
 <h2 id="using-highlight_file">Using highlight_file<a class="anchor" aria-label="anchor" href="#using-highlight_file"></a>
@@ -100,7 +103,21 @@ R code.</p>
 <p>We can pass the path to a local file using the
 <code>highlight_file</code> function</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../../reference/highlight_file.html">highlight_file</a></span><span class="op">(</span><span class="st">"&lt;path_to_your_file&gt;"</span>, language <span class="op">=</span> <span class="st">"r"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Specifying the language to be used</span></span>
+<span><span class="fu"><a href="../../reference/highlight_file.html">highlight_file</a></span><span class="op">(</span><span class="st">"&lt;path_to_your_file&gt;"</span>, language <span class="op">=</span> <span class="st">"r"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Auto guessing the language to be highlighted when the language</span></span>
+<span><span class="co"># parameter is not specified.</span></span>
+<span><span class="fu"><a href="../../reference/highlight_file.html">highlight_file</a></span><span class="op">(</span><span class="st">"&lt;path_to_your_file&gt;"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="using-themes">Using themes<a class="anchor" aria-label="anchor" href="#using-themes"></a>
+</h2>
+<p>Specifying a theme to be used. You can get the available themes by
+means of the following function: <code><a href="../../reference/get_available_themes.html">get_available_themes()</a></code></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Specifying the language to be used and the theme</span></span>
+<span><span class="fu"><a href="../../reference/highlight_file.html">highlight_file</a></span><span class="op">(</span><span class="st">"&lt;path_to_your_file&gt;"</span>, language <span class="op">=</span> <span class="st">"r"</span>, theme <span class="op">=</span> <span class="st">"dark"</span><span class="op">)</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

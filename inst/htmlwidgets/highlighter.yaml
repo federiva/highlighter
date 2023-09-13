@@ -1,4 +1,8 @@
 dependencies:
+ - name: "prism"
+   version: "0.1.0"
+   src: "htmlwidgets/lib/prism"
+   script: "prism.js"
  - name: "plugins"
    version: "0.1.0"
    src: "htmlwidgets/utils"

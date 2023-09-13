@@ -1,5 +1,6 @@
 library(shiny)
 library(highlighter)
+library(stringr)
 
 ui <- fluidPage(
   selectizeInput(
@@ -8,7 +9,14 @@ ui <- fluidPage(
     choices = list.files(
       path.package(package = "highlighter"),
       recursive = TRUE
-    )
+    ) |>
+      str_subset(pattern = "docs", negate = TRUE) |>
+      str_subset(pattern = ".css", negate = TRUE)
+  ),
+  checkboxInput(
+    inputId = "autoguess",
+    label = "Auto guess language?",
+    value = TRUE
   ),
   selectizeInput(
     inputId = "language",
@@ -20,6 +28,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
+
   output$code <- renderHighlighter({
     shiny::req(shiny::isTruthy(input$language))
     highlight_file(
@@ -27,7 +36,8 @@ server <- function(input, output, session) {
         path.package(package = "highlighter"),
         input$file
       ),
-      language = input$language,
+      language = if (input$autoguess) NULL else input$language,
+      theme = "solarized_light",
       plugins = list(
         line_number(
           use_line_number = TRUE,

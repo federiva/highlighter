@@ -12,8 +12,8 @@ navbar:
       menu:
         - text: Highlight code
           href: articles/how_to/how_to_highlight_code.html
-        - text: Highlight code directly from a file
-          href: articles/how_to/how_to_highlight_code.html
+        - text: Use highlighter in a Shiny App
+          href: articles/how_to/how_to_use_in_a_shiny_app.html
     github:
       icon: fa-github fa-lg
       href: https://github.com/federiva/highlighter/

@@ -1,6 +1,7 @@
 # highlighter
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/federiva/highlighter/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/federiva/highlighter/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/highlighter)](https://CRAN.R-project.org/package=highlighter)
 <!-- badges: end -->
 
 highlighter is a package used for code syntax highlighting. This package is a  wrapper for the 

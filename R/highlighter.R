@@ -4,20 +4,26 @@
 #'
 #' @param code The code to be highlighted
 #' @param language The programming language chosen to be highlighted
+#' @param theme A character. Indicating which theme will be used
 #' @param plugins Optional. A list of plugins to be used
 #' @param width Optional. The width to be used by the widget
 #' @param height Optional. The height to be used by the widget
 #' @param elementId Optional. The DOM element id to be used by the widget
 #' @import htmlwidgets
 #'
+#' @seealso [get_available_languages()] for available languages,
+#' [get_available_themes()] for available themes
+#'
 #' @export
 #' @examples
 #' # Highlight R code
 #' highlighter("print('Hello, world!')", language = "r")
-highlighter <- function(code, language = "r", plugins = NULL, width = "100%",
-                        height = "auto", elementId = NULL) { # nolint object_name_linter
+highlighter <- function(code, language = "r", theme = "default", plugins = NULL,
+                        width = "100%", height = "auto", elementId = NULL) { # nolint object_name_linter
   assert_language_is_available(language)
   assert_plugin_definitions(plugins)
+  assert_theme_is_available(theme)
+
   # forward options using x
   x <- list(
     code = code,
@@ -32,8 +38,13 @@ highlighter <- function(code, language = "r", plugins = NULL, width = "100%",
     height = height,
     package = "highlighter",
     elementId = elementId,
-    dependencies = highlighter_dependencies()
+    dependencies = highlighter_dependencies(get_theme(theme)),
+    preRenderHook = pre_render_hook
   )
+}
+
+pre_render_hook <- function(instance) {
+  instance
 }
 
 #' Shiny bindings for highlighter
@@ -76,28 +87,15 @@ renderHighlighter <- function(expr, env = parent.frame(), quoted = FALSE) { # no
 #' Highlighter dependencies
 #' @importFrom htmltools htmlDependency
 #' @noRd
-highlighter_dependencies <- function(theme = "default") {
+highlighter_dependencies <- function(theme) {
   htmlDependency(
     name = "highlighter",
     version = "0.1.0",
     package = "highlighter",
-    src = "htmlwidgets/lib/prism",
-    script = "prism.js",
-    stylesheet = "prism.css"
-  )
-}
-
-
-#' Utility functions
-#' @importFrom htmltools htmlDependency
-#' @noRd
-custom_utils_dependencies <- function() {
-  htmlDependency(
-    name = "highlighter",
-    version = "0.1.0",
-    package = "highlighter",
-    src = "htmlwidgets/utils",
-    script = "plugins.js"
+    src = "htmlwidgets",
+    script = "highlighter.js",
+    stylesheet = paste0("lib/prism/css/", theme),
+    all_files = FALSE
   )
 }
 
@@ -106,12 +104,21 @@ custom_utils_dependencies <- function() {
 #' @param file_path The path to the file to be highlighted
 #' @param language The programming language chosen to be highlighted
 #' @param plugins Optional. A list of plugins to be used
+#' @param theme A character. Indicating which theme will be used
+#' @importFrom tools file_ext
+#' @seealso [get_available_languages()] for available languages,
+#' [get_available_themes()] for available themes
 #' @export
-highlight_file <- function(file_path, language = "r", plugins = NULL) {
+highlight_file <- function(file_path, language = NULL, plugins = NULL, theme = "default") {
   assert_file_exists(file_path)
+  if (is.null(language)) {
+    file_extension <- file_ext(file_path)
+    language <- autoguess_language(file_extension)
+  }
+
   code <- paste(
     readLines(file_path),
     collapse = "\n"
   )
-  highlighter(code, language, plugins)
+  highlighter(code = code, language = language, plugins = plugins, theme = theme)
 }

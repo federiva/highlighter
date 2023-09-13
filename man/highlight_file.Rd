@@ -4,7 +4,7 @@
 \alias{highlight_file}
 \title{Highlights the content of a given file}
 \usage{
-highlight_file(file_path, language = "r", plugins = NULL)
+highlight_file(file_path, language = NULL, plugins = NULL, theme = "default")
 }
 \arguments{
 \item{file_path}{The path to the file to be highlighted}
@@ -12,7 +12,13 @@ highlight_file(file_path, language = "r", plugins = NULL)
 \item{language}{The programming language chosen to be highlighted}
 
 \item{plugins}{Optional. A list of plugins to be used}
+
+\item{theme}{A character. Indicating which theme will be used}
 }
 \description{
 Highlights the content of a given file
+}
+\seealso{
+\code{\link[=get_available_languages]{get_available_languages()}} for available languages,
+\code{\link[=get_available_themes]{get_available_themes()}} for available themes
 }

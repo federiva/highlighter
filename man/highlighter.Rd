@@ -7,6 +7,7 @@
 highlighter(
   code,
   language = "r",
+  theme = "default",
   plugins = NULL,
   width = "100\%",
   height = "auto",
@@ -17,6 +18,8 @@ highlighter(
 \item{code}{The code to be highlighted}
 
 \item{language}{The programming language chosen to be highlighted}
+
+\item{theme}{A character. Indicating which theme will be used}
 
 \item{plugins}{Optional. A list of plugins to be used}
 
@@ -32,4 +35,8 @@ Highlights code
 \examples{
 # Highlight R code
 highlighter("print('Hello, world!')", language = "r")
+}
+\seealso{
+\code{\link[=get_available_languages]{get_available_languages()}} for available languages,
+\code{\link[=get_available_themes]{get_available_themes()}} for available themes
 }

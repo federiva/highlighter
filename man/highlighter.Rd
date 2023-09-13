@@ -6,7 +6,7 @@
 \usage{
 highlighter(
   code,
-  language = NULL,
+  language = "r",
   theme = "default",
   plugins = NULL,
   width = "100\%",

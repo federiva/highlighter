@@ -18,7 +18,7 @@
 #' @examples
 #' # Highlight R code
 #' highlighter("print('Hello, world!')", language = "r")
-highlighter <- function(code, language = NULL, theme = "default", plugins = NULL,
+highlighter <- function(code, language = "r", theme = "default", plugins = NULL,
                         width = "100%", height = "auto", elementId = NULL) { # nolint object_name_linter
   assert_language_is_available(language)
   assert_plugin_definitions(plugins)

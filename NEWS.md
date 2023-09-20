@@ -1,3 +1,3 @@
-# highlighter (development version)
+# highlighter 0.0.1.0000
 
-* Initial CRAN submission.
+* Initial release to CRAN.

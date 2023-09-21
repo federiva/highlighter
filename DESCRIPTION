@@ -1,10 +1,12 @@
 Package: highlighter
-Title: Code Syntax Highlighting using the Prism.js library
-Version: 0.0.1.0000
+Title: Code Syntax Highlighting using the 'Prism.js' Library
+Version: 0.1
 Authors@R: 
     person("Federico", "Rivadeneira", , "federivadeneira@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-7818-1225"))
-Description: This package leverages the power of the Prism.js library to enhance your R Markdown (rmd) documents and Shiny applications with Code Syntax Highlighting. Whether you're documenting your data analysis or creating interactive Shiny apps, this package ensures that your code snippets are presented in a clear and visually appealing manner. 
+Description: Code Syntax Highlighting made easy for code snippets or complete
+    files. Whether you're documenting your data analysis or creating interactive
+    'Shiny' apps.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

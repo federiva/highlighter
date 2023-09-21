@@ -5,8 +5,8 @@ Authors@R:
     person("Federico", "Rivadeneira", , "federivadeneira@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-7818-1225"))
 Description: Code Syntax Highlighting made easy for code snippets or complete
-  files. Whether you're documenting your data analysis or creating interactive
-  'Shiny' apps.
+    files. Whether you're documenting your data analysis or creating interactive
+    'Shiny' apps.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

@@ -8,7 +8,7 @@ available_plugins <- c("line_number", "highlight")
 #' @return A list (named) with the name of the plugin, the class passed to the
 #' render function and the line number in which the line numbers will start
 #' from (optional).
-#' 
+#'
 #' @export
 #'
 #' @examples
@@ -45,12 +45,12 @@ line_number <- function(use_line_number = TRUE, start_from = 1) {
 #' @param range A character indicating the range to be used, for example 2-5
 #' will highlight from 2 up to 5. Also you can highlight two or more ranges in
 #' the following way 2-5,10-13,19.
-#' 
+#'
 #' @return A list (named) with the name of the plugin and the range passed
 #' by the function
 #'
 #' @export
-#' 
+#'
 #' @examples
 #' if (interactive()) {
 #'   highlighter::highlighter(

@@ -63,23 +63,23 @@ autoguess_language <- function(language) {
 }
 
 #' Lists the current available Languages
-#' 
+#'
 #' @description List the available languages that can be used to highlight
-#' 
+#'
 #' @return A character vector that contains the programming languages available
 #' to highlight.
-#' 
+#'
 #' @export
 get_available_languages <- function() {
   available_languages
 }
 
 #' Lists the current available themes
-#' 
+#'
 #' @description List the available themes that can be used with highlighter
-#' 
+#'
 #' @return A character vector with the names of the themes available.
-#' 
+#'
 #' @export
 get_available_themes <- function() {
   names(available_themes)

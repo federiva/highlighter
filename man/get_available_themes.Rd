@@ -2,9 +2,12 @@
 % Please edit documentation in R/utils.R
 \name{get_available_themes}
 \alias{get_available_themes}
-\title{List the available themes that can be used with highlighter}
+\title{Lists the current available themes}
 \usage{
 get_available_themes()
+}
+\value{
+A character vector with the names of the themes available.
 }
 \description{
 List the available themes that can be used with highlighter

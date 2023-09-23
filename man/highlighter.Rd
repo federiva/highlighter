@@ -29,12 +29,17 @@ highlighter(
 
 \item{elementId}{Optional. The DOM element id to be used by the widget}
 }
+\value{
+An object of class \code{highlighter}
+}
 \description{
 Highlights code
 }
 \examples{
 # Highlight R code
-highlighter("print('Hello, world!')", language = "r")
+if (interactive()) {
+  highlighter("print('Hello, world!')", language = "r")
+}
 }
 \seealso{
 \code{\link[=get_available_languages]{get_available_languages()}} for available languages,

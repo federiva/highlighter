@@ -2,9 +2,13 @@
 % Please edit documentation in R/utils.R
 \name{get_available_languages}
 \alias{get_available_languages}
-\title{List the available languages that can be used to highlight}
+\title{Lists the current available Languages}
 \usage{
 get_available_languages()
+}
+\value{
+A character vector that contains the programming languages available
+to highlight.
 }
 \description{
 List the available languages that can be used to highlight

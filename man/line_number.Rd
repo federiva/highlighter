@@ -11,21 +11,26 @@ line_number(use_line_number = TRUE, start_from = 1)
 
 \item{start_from}{A numeric indicating where to start to count from}
 }
+\value{
+A list (named) with the name of the plugin, the class passed to the
+render function and the line number in which the line numbers will start
+from (optional).
+}
 \description{
 Line Number plugin
 }
 \examples{
-\dontrun{
-highlighter::highlighter(
-  "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
-  language = "r",
-  plugins = list(
-    line_number(
-      use_line_number = TRUE,
-      start_from = 2
+if (interactive()) {
+  highlighter::highlighter(
+    "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
+    language = "r",
+    plugins = list(
+      line_number(
+        use_line_number = TRUE,
+        start_from = 2
+      )
     )
   )
-)
 }
 
 }

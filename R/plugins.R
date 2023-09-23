@@ -5,20 +5,24 @@ available_plugins <- c("line_number", "highlight")
 #' @param use_line_number Logical
 #' @param start_from A numeric indicating where to start to count from
 #'
+#' @return A list (named) with the name of the plugin, the class passed to the
+#' render function and the line number in which the line numbers will start
+#' from (optional).
+#'
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' highlighter::highlighter(
-#'   "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
-#'   language = "r",
-#'   plugins = list(
-#'     line_number(
-#'       use_line_number = TRUE,
-#'       start_from = 2
+#' if (interactive()) {
+#'   highlighter::highlighter(
+#'     "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
+#'     language = "r",
+#'     plugins = list(
+#'       line_number(
+#'         use_line_number = TRUE,
+#'         start_from = 2
+#'       )
 #'     )
 #'   )
-#' )
 #' }
 #'
 line_number <- function(use_line_number = TRUE, start_from = 1) {
@@ -42,19 +46,22 @@ line_number <- function(use_line_number = TRUE, start_from = 1) {
 #' will highlight from 2 up to 5. Also you can highlight two or more ranges in
 #' the following way 2-5,10-13,19.
 #'
+#' @return A list (named) with the name of the plugin and the range passed
+#' by the function
+#'
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' highlighter::highlighter(
-#'   "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
-#'   language = "r",
-#'   plugins = list(
-#'     highlight(
-#'       range = "1-2"
+#' if (interactive()) {
+#'   highlighter::highlighter(
+#'     "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
+#'     language = "r",
+#'     plugins = list(
+#'       highlight(
+#'         range = "1-2"
+#'       )
 #'     )
 #'   )
-#' )
 #' }
 #'
 highlight <- function(range) {

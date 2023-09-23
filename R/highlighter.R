@@ -14,10 +14,14 @@
 #' @seealso [get_available_languages()] for available languages,
 #' [get_available_themes()] for available themes
 #'
+#' @return An object of class `highlighter`
+#'
 #' @export
 #' @examples
 #' # Highlight R code
-#' highlighter("print('Hello, world!')", language = "r")
+#' if (interactive()) {
+#'   highlighter("print('Hello, world!')", language = "r")
+#' }
 highlighter <- function(code, language = "r", theme = "default", plugins = NULL,
                         width = "100%", height = "auto", elementId = NULL) { # nolint object_name_linter
   assert_language_is_available(language)
@@ -61,7 +65,9 @@ pre_render_hook <- function(instance) {
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
 #'
-#' @name highlighter-shiny
+#' @name highlighterOutput
+#'
+#' @return An object of class `shiny.tag.list`
 #'
 #' @export
 highlighterOutput <- function(outputId, width = "100%", height = "auto") { # nolint object_name_linter
@@ -74,7 +80,10 @@ highlighterOutput <- function(outputId, width = "100%", height = "auto") { # nol
   )
 }
 
-#' @rdname highlighter-shiny
+#' @rdname highlighterOutput
+#'
+#' @return An object of class `shiny.render.function`
+#'
 #' @export
 renderHighlighter <- function(expr, env = parent.frame(), quoted = FALSE) { # nolint object_name_linter
   if (!quoted) {
@@ -100,12 +109,19 @@ highlighter_dependencies <- function(theme) {
 }
 
 
-#' Highlights the content of a given file
+#' Highlight Syntax of a File
+#'
+#' @description Highlights the content of a given file according to the source
+#' language, theme and plugins used.
+#'
 #' @param file_path The path to the file to be highlighted
 #' @param language The programming language chosen to be highlighted
 #' @param plugins Optional. A list of plugins to be used
 #' @param theme A character. Indicating which theme will be used
 #' @importFrom tools file_ext
+#'
+#' @return An object of class `highlighter`
+#'
 #' @seealso [get_available_languages()] for available languages,
 #' [get_available_themes()] for available themes
 #' @export

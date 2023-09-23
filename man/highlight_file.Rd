@@ -2,7 +2,7 @@
 % Please edit documentation in R/highlighter.R
 \name{highlight_file}
 \alias{highlight_file}
-\title{Highlights the content of a given file}
+\title{Highlight Syntax of a File}
 \usage{
 highlight_file(file_path, language = NULL, plugins = NULL, theme = "default")
 }
@@ -15,8 +15,12 @@ highlight_file(file_path, language = NULL, plugins = NULL, theme = "default")
 
 \item{theme}{A character. Indicating which theme will be used}
 }
+\value{
+An object of class \code{highlighter}
+}
 \description{
-Highlights the content of a given file
+Highlights the content of a given file according to the source
+language, theme and plugins used.
 }
 \seealso{
 \code{\link[=get_available_languages]{get_available_languages()}} for available languages,

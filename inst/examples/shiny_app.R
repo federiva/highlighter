@@ -2,6 +2,14 @@ library(shiny)
 library(highlighter)
 library(stringr)
 
+# Listing this package files
+package_files <- list.files(
+  path.package(package = "highlighter"),
+  recursive = TRUE
+) |>
+  str_subset(pattern = "docs", negate = TRUE) |>
+  str_subset(pattern = ".css", negate = TRUE)
+
 ui <- fluidPage(
   h1("Highlighter example"),
   hr(),
@@ -10,12 +18,8 @@ ui <- fluidPage(
     selectizeInput(
       inputId = "file",
       label = "Select a file",
-      choices = list.files(
-        path.package(package = "highlighter"),
-        recursive = TRUE
-      ) |>
-        str_subset(pattern = "docs", negate = TRUE) |>
-        str_subset(pattern = ".css", negate = TRUE)
+      choices = package_files,
+      selected = "inst/examples/shiny_app.R"
     ),
     checkboxInput(
       inputId = "autoguess",
@@ -41,8 +45,10 @@ server <- function(input, output, session) {
         path.package(package = "highlighter"),
         input$file
       ),
+      # When language = NULL then highlighter will try to guess it by reading
+      # its extension
       language = if (input$autoguess) NULL else input$language,
-      theme = "solarized_light",
+      theme = "tomorrow_night",
       plugins = list(
         line_number(
           use_line_number = TRUE,

@@ -11,20 +11,24 @@ highlight(range)
 will highlight from 2 up to 5. Also you can highlight two or more ranges in
 the following way 2-5,10-13,19.}
 }
+\value{
+A list (named) with the name of the plugin and the range passed
+by the function
+}
 \description{
 Line highlight plugin
 }
 \examples{
-\dontrun{
-highlighter::highlighter(
-  "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
-  language = "r",
-  plugins = list(
-    highlight(
-      range = "1-2"
+if (interactive()) {
+  highlighter::highlighter(
+    "print('Hello, world!')\ncat <- \"Aristofanes\"\nstr(some_variable)",
+    language = "r",
+    plugins = list(
+      highlight(
+        range = "1-2"
+      )
     )
   )
-)
 }
 
 }

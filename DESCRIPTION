@@ -24,3 +24,4 @@ Suggests:
     spelling
 VignetteBuilder: knitr
 URL: https://federiva.github.io/highlighter/
+BugReports: https://github.com/federiva/highlighter/issues

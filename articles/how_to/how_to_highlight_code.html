@@ -8,8 +8,8 @@
 <meta name="description" content="highlighter">
 <title>Highlight code • highlighter</title>
 <script src="../../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../../pkgdown.js"></script><meta property="og:title" content="Highlight code">
 <meta property="og:description" content="highlighter">
@@ -69,13 +69,13 @@
 
 
 
-<script src="how_to_highlight_code_files/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="how_to_highlight_code_files/prism-0.1.0/prism.js"></script><script src="how_to_highlight_code_files/plugins-0.1.0/plugins.js"></script><script src="how_to_highlight_code_files/highlighter-binding-0.1/highlighter.js"></script><link href="how_to_highlight_code_files/highlighter-0.1.0/lib/prism/css/prism_default.css" rel="stylesheet">
+<script src="how_to_highlight_code_files/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="how_to_highlight_code_files/prism-0.1.0/prism.js"></script><script src="how_to_highlight_code_files/plugins-0.1.0/plugins.js"></script><script src="how_to_highlight_code_files/highlighter-binding-0.1/highlighter.js"></script><link href="how_to_highlight_code_files/highlighter-0.1.0/lib/prism/css/prism_default.css" rel="stylesheet">
 <script src="how_to_highlight_code_files/highlighter-0.1.0/highlighter.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Highlight code</h1>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/federiva/highlighter/blob/HEAD/vignettes/how_to/how_to_highlight_code.Rmd" class="external-link"><code>vignettes/how_to/how_to_highlight_code.Rmd</code></a></small>
       <div class="d-none name"><code>how_to_highlight_code.Rmd</code></div>
     </div>
 
@@ -89,13 +89,13 @@ and highlight code. By default the function will highlight the syntax of
 R code.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../../reference/highlighter.html">highlighter</a></span><span class="op">(</span><span class="st">"some_variable &lt;- 3"</span><span class="op">)</span></span></code></pre></div>
-<div id="htmlwidget-2a3f07dd967c17f81749" style="width:100%;height:auto;" class="highlighter html-widget "></div>
-<script type="application/json" data-for="htmlwidget-2a3f07dd967c17f81749">{"x":{"code":"some_variable <- 3","language":"r","plugins":null},"evals":[],"jsHooks":[]}</script><p>If we want we can specify the language using the
+<div id="htmlwidget-b9c9a8de712f6a1d0419" style="width:100%;height:auto;" class="highlighter html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b9c9a8de712f6a1d0419">{"x":{"code":"some_variable <- 3","language":"r","plugins":null},"evals":[],"jsHooks":[]}</script><p>If we want we can specify the language using the
 <code>language</code> parameter.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../../reference/highlighter.html">highlighter</a></span><span class="op">(</span><span class="st">"const someVariable = 3;"</span>, language <span class="op">=</span> <span class="st">"js"</span><span class="op">)</span></span></code></pre></div>
-<div id="htmlwidget-fccd20f38f708de17ece" style="width:100%;height:auto;" class="highlighter html-widget "></div>
-<script type="application/json" data-for="htmlwidget-fccd20f38f708de17ece">{"x":{"code":"const someVariable = 3;","language":"js","plugins":null},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-534f9acaee598c9d95b7" style="width:100%;height:auto;" class="highlighter html-widget"></div>
+<script type="application/json" data-for="htmlwidget-534f9acaee598c9d95b7">{"x":{"code":"const someVariable = 3;","language":"js","plugins":null},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="section level2">
 <h2 id="using-highlight_file">Using highlight_file<a class="anchor" aria-label="anchor" href="#using-highlight_file"></a>

@@ -32,6 +32,12 @@ ui <- fluidPage(
       choices = highlighter::get_available_languages(),
       selected = "r"
     ),
+    selectizeInput(
+      inputId = "theme",
+      label = "Select theme",
+      choices = highlighter::get_available_themes(),
+      selected = "tomorrow_night"
+    ),
     highlighterOutput("code")
   )
 )
@@ -60,6 +66,11 @@ server <- function(input, output, session) {
       )
     )
   })
+
+  # Globally change the highlighter theme
+  observe({
+    set_highlighter_theme(theme = input$theme)
+  }) |> bindEvent(input$theme, ignoreInit = TRUE)
 }
 
 shinyApp(ui, server)

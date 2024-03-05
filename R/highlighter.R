@@ -106,14 +106,14 @@ highlighter_dependencies <- function(theme) {
       script = "highlighter.js",
       all_files = FALSE
     ),
-      htmlDependency(
-        name = "highlighter-css",
-        version = "0.1.0",
-        package = "highlighter",
-        src = "htmlwidgets",
-        stylesheet = paste0("lib/prism/css/", get_theme(theme)),
-        all_files = FALSE
-      )
+    htmlDependency(
+      name = "highlighter-css",
+      version = "0.1.0",
+      package = "highlighter",
+      src = "htmlwidgets",
+      stylesheet = paste0("lib/prism/css/", get_theme(theme)),
+      all_files = FALSE
+    )
   )
 }
 

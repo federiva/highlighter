@@ -74,7 +74,7 @@ server <- function(input, output, session) {
         input$file
       ),
       language = if (input$autoguess) NULL else input$language,
-      theme = "solarized_light",
+      theme = input$theme,
       plugins = list(
         line_number(
           use_line_number = TRUE,
@@ -87,10 +87,6 @@ server <- function(input, output, session) {
     )
   })
 
-  # Globally change the highlighter theme
-  observe({
-    set_highlighter_theme(theme = input$theme)
-  }) |> bindEvent(input$theme, ignoreInit = TRUE)
 
 }
 

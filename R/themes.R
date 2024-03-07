@@ -22,7 +22,9 @@ get_theme <- function(theme) {
 #' @noRd
 remove_css_dependencies <- function() {
   session <- shiny::getDefaultReactiveDomain()
-  session$sendCustomMessage("remove_css_dependencies", "")
+  if (!is.null(session)) {
+    session$sendCustomMessage("remove_css_dependencies", "")
+  }
 }
 
 #' Lists the current available themes

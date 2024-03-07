@@ -23,7 +23,9 @@ Suggests:
     knitr,
     lintr,
     rmarkdown,
-    spelling
+    spelling,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 URL: https://federiva.github.io/highlighter/
 BugReports: https://github.com/federiva/highlighter/issues
+Config/testthat/edition: 3

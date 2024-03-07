@@ -33,7 +33,9 @@ HTMLWidgets.widget({
         codeEl.textContent = x.code;
         preEl = parsePlugins(preEl, x.plugins);
         // Highlight
-        Prism.highlightElement(codeEl);
+        setTimeout( () => {
+          Prism.highlightElement(codeEl);
+        }, 50);
       }
 
     };
@@ -44,7 +46,7 @@ HTMLWidgets.widget({
  * Removes CSS dependencies from the head element.
  *
  * @param {object} params - an object containing parameters for the removal process
- * @return {void} 
+ * @return {void}
  */
 removeCSSDependencies = (params) => {
   $("head link[href*='highlighter-css']").remove();

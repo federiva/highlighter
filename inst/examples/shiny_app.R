@@ -54,7 +54,7 @@ server <- function(input, output, session) {
       # When language = NULL then highlighter will try to guess it by reading
       # its extension
       language = if (input$autoguess) NULL else input$language,
-      theme = "tomorrow_night",
+      theme = input$theme,
       plugins = list(
         line_number(
           use_line_number = TRUE,
@@ -67,10 +67,6 @@ server <- function(input, output, session) {
     )
   })
 
-  # Globally change the highlighter theme
-  observe({
-    set_highlighter_theme(theme = input$theme)
-  }) |> bindEvent(input$theme, ignoreInit = TRUE)
 }
 
 shinyApp(ui, server)

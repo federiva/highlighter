@@ -48,6 +48,7 @@ highlighter <- function(code, language = "r", theme = "default", plugins = NULL,
 }
 
 pre_render_hook <- function(instance) {
+  remove_css_dependencies()
   instance
 }
 
@@ -95,8 +96,10 @@ renderHighlighter <- function(expr, env = parent.frame(), quoted = FALSE) { # no
 
 #' Highlighter dependencies
 #' @importFrom htmltools htmlDependency
+#' @importFrom digest digest
 #' @noRd
 highlighter_dependencies <- function(theme) {
+  version <- digest(Sys.time())
   list(
     htmlDependency(
       name = "highlighter",
@@ -107,7 +110,7 @@ highlighter_dependencies <- function(theme) {
       all_files = FALSE
     ),
     htmlDependency(
-      name = "highlighter-css",
+      name = sprintf("highlighter-css-%s-%s", theme, version),
       version = "0.1.0",
       package = "highlighter",
       src = "htmlwidgets",

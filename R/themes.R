@@ -1,33 +1,53 @@
-#' Set Highlighter Theme
-#' Sets the highlighter theme globally within the context of a Shiny App
-#' @param theme A character. Indicating which theme will be used
-#' @importFrom htmltools htmlDependency attachDependencies
-#' @importFrom shiny insertUI tags
-#' @importFrom digest digest
-#' @export
-set_highlighter_theme <- function(theme) {
-  version <- digest(Sys.time())
-  dep <- htmlDependency(
-    name = sprintf("highlighter-css-%s-%s", theme, version),
-    version = "0.1.0",
-    package = "highlighter",
-    src = "htmlwidgets",
-    stylesheet = sprintf("lib/prism/css/%s?version=%s", get_theme(theme), version),
-    all_files = FALSE
-  )
+.available_themes <- c(
+  "default", "dark", "funky", "coy", "okaidia", "solarized_light",
+  "tomorrow_night", "twilight"
+)
 
-  deps_container <- attachDependencies(
-    tags$head(),
-    dep
-  )
-  # Remove previous dependencies
-  remove_css_dependencies()
-  insertUI("head", ui = deps_container)
+available_themes <- setNames(
+  paste0("prism_", .available_themes, ".css"),
+  .available_themes
+)
+
+#' @param theme A character indicating which is the theme to be chosen
+#' @noRd
+get_theme <- function(theme) {
+  if (is.null(theme)) {
+    theme <- "default"
+  }
+  available_themes[[theme]]
 }
+
 
 #' Remove Highlighter CSS dependencies in the browser
 #' @noRd
 remove_css_dependencies <- function() {
   session <- shiny::getDefaultReactiveDomain()
   session$sendCustomMessage("remove_css_dependencies", "")
+}
+
+#' Lists the current available themes
+#'
+#' @description List the available themes that can be used with highlighter
+#'
+#' @return A character vector with the names of the themes available.
+#'
+#' @export
+get_available_themes <- function() {
+  names(available_themes)
+}
+
+#' importFrom rlang abort
+#' @noRd
+assert_theme_is_available <- function(theme) {
+  test <- theme %in% names(available_themes)
+  if (!test) {
+    rlang::abort(
+      message = paste(
+        theme,
+        "is not a valid theme. Check get_available_themes() for the supported ones"
+      ),
+      class = "themeNotAvailable"
+    )
+  }
+  invisible()
 }

@@ -42,12 +42,13 @@ highlighter <- function(code, language = "r", theme = "default", plugins = NULL,
     height = height,
     package = "highlighter",
     elementId = elementId,
-    dependencies = highlighter_dependencies(get_theme(theme)),
+    dependencies = highlighter_dependencies(theme),
     preRenderHook = pre_render_hook
   )
 }
 
 pre_render_hook <- function(instance) {
+  remove_css_dependencies()
   instance
 }
 
@@ -95,16 +96,27 @@ renderHighlighter <- function(expr, env = parent.frame(), quoted = FALSE) { # no
 
 #' Highlighter dependencies
 #' @importFrom htmltools htmlDependency
+#' @importFrom digest digest
 #' @noRd
 highlighter_dependencies <- function(theme) {
-  htmlDependency(
-    name = "highlighter",
-    version = "0.1.0",
-    package = "highlighter",
-    src = "htmlwidgets",
-    script = "highlighter.js",
-    stylesheet = paste0("lib/prism/css/", theme),
-    all_files = FALSE
+  version <- digest(Sys.time())
+  list(
+    htmlDependency(
+      name = "highlighter",
+      version = "0.1.0",
+      package = "highlighter",
+      src = "htmlwidgets",
+      script = "highlighter.js",
+      all_files = FALSE
+    ),
+    htmlDependency(
+      name = sprintf("highlighter-css-%s-%s", theme, version),
+      version = "0.1.0",
+      package = "highlighter",
+      src = "htmlwidgets",
+      stylesheet = paste0("lib/prism/css/", get_theme(theme)),
+      all_files = FALSE
+    )
   )
 }
 

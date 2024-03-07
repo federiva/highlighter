@@ -33,9 +33,23 @@ HTMLWidgets.widget({
         codeEl.textContent = x.code;
         preEl = parsePlugins(preEl, x.plugins);
         // Highlight
-        Prism.highlightElement(codeEl);
+        setTimeout( () => {
+          Prism.highlightElement(codeEl);
+        }, 50);
       }
 
     };
   }
 });
+
+/**
+ * Removes CSS dependencies from the head element.
+ *
+ * @param {object} params - an object containing parameters for the removal process
+ * @return {void}
+ */
+removeCSSDependencies = (params) => {
+  $("head link[href*='highlighter-css']").remove();
+}
+
+Shiny.addCustomMessageHandler("remove_css_dependencies", removeCSSDependencies);

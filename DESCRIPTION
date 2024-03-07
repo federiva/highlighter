@@ -1,6 +1,6 @@
 Package: highlighter
 Title: Code Syntax Highlighting using the 'Prism.js' Library
-Version: 0.1
+Version: 0.2
 Authors@R: 
     person("Federico", "Rivadeneira", , "federivadeneira@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-7818-1225"))
@@ -13,15 +13,19 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     cli,
+    digest,
     glue,
     htmltools,
     htmlwidgets,
-    rlang
+    rlang,
+    shiny
 Suggests: 
     knitr,
     lintr,
     rmarkdown,
-    spelling
+    spelling,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 URL: https://federiva.github.io/highlighter/
 BugReports: https://github.com/federiva/highlighter/issues
+Config/testthat/edition: 3

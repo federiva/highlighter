@@ -32,6 +32,12 @@ ui <- fluidPage(
       choices = highlighter::get_available_languages(),
       selected = "r"
     ),
+    selectizeInput(
+      inputId = "theme",
+      label = "Select theme",
+      choices = highlighter::get_available_themes(),
+      selected = "tomorrow_night"
+    ),
     highlighterOutput("code")
   )
 )
@@ -48,7 +54,7 @@ server <- function(input, output, session) {
       # When language = NULL then highlighter will try to guess it by reading
       # its extension
       language = if (input$autoguess) NULL else input$language,
-      theme = "tomorrow_night",
+      theme = input$theme,
       plugins = list(
         line_number(
           use_line_number = TRUE,
@@ -60,6 +66,7 @@ server <- function(input, output, session) {
       )
     )
   })
+
 }
 
 shinyApp(ui, server)

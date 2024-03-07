@@ -1,23 +1,6 @@
 available_languages <- readLines("inst/assets/languages")
 
-.available_themes <- c(
-  "default", "dark", "funky", "coy", "okaidia", "solarized_light",
-  "tomorrow_night", "twilight"
-)
 
-available_themes <- setNames(
-  paste0("prism_", .available_themes, ".css"),
-  .available_themes
-)
-
-#' @param theme A character indicating which is the theme to be chosen
-#' @noRd
-get_theme <- function(theme) {
-  if (is.null(theme)) {
-    theme <- "default"
-  }
-  available_themes[[theme]]
-}
 
 #' Get the default language
 #' @param language A character indicating which is the input language
@@ -74,16 +57,6 @@ get_available_languages <- function() {
   available_languages
 }
 
-#' Lists the current available themes
-#'
-#' @description List the available themes that can be used with highlighter
-#'
-#' @return A character vector with the names of the themes available.
-#'
-#' @export
-get_available_themes <- function() {
-  names(available_themes)
-}
 
 #' importFrom rlang abort
 #' @noRd
@@ -100,24 +73,6 @@ assert_language_is_available <- function(language) {
   }
   invisible()
 }
-
-#' importFrom rlang abort
-#' @noRd
-assert_theme_is_available <- function(theme) {
-  test <- theme %in% names(available_themes)
-  if (!test) {
-    rlang::abort(
-      message = paste(
-        theme,
-        "is not a valid theme. Check get_available_themes() for the supported ones"
-      ),
-      class = "themeNotAvailable"
-    )
-  }
-  invisible()
-}
-
-
 
 #' Assert that the plugins passed are available
 #' @noRd

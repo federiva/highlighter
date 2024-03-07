@@ -5,7 +5,7 @@ articles:
   highlighter: highlighter.html
   how_to_highlight_code: how_to/how_to_highlight_code.html
   how_to_use_in_a_shiny_app: how_to/how_to_use_in_a_shiny_app.html
-last_built: 2024-03-07T02:33Z
+last_built: 2024-03-07T18:20Z
 urls:
   reference: https://federiva.github.io/highlighter/reference
   article: https://federiva.github.io/highlighter/articles
